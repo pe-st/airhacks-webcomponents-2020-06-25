@@ -1,0 +1,1 @@
+export const fetchMessage = (msg) => `hello, ${msg}`;

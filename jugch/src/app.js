@@ -1,8 +1,9 @@
+import { fetchMessage } from "./MessageService.js";
 class OnlineSession extends HTMLElement { 
 
     constructor() { 
         super();
-        this.message = "hey, jug.ch";
+        this.message = fetchMessage('duke');
     }
 
     connectedCallback() { 
