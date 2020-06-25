@@ -29,8 +29,11 @@ class OnlineSession extends HTMLElement {
         console.log(event);
     }
 
-    saveClicked() { 
+    async saveClicked() { 
         console.log('button was clicked' + new Date());
+        const response = await fetch('jugch.json');
+        const { name,coolness,age,nextSession='vaadin'} = await response.json();
+        console.log("--------------",name,coolness,age,nextSession);
     }
 
 }
