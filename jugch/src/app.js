@@ -4,10 +4,11 @@ class OnlineSession extends HTMLElement {
     constructor() { 
         super();
         this.message = fetchMessage('duke');
+        this.root = this.attachShadow({mode:"open"});
     }
 
     connectedCallback() { 
-        this.innerHTML = `
+        this.root.innerHTML = `
         <style>
         h1{
             background-color: red;
