@@ -1,4 +1,7 @@
+document.querySelector("input").onchange = e => console.log('no lit',e);
+
 import { fetchMessage } from "./MessageService.js";
+import { html,render } from "./lit-html.js";
 class OnlineSession extends HTMLElement { 
 
     constructor() { 
@@ -8,7 +11,7 @@ class OnlineSession extends HTMLElement {
     }
 
     connectedCallback() { 
-        this.root.innerHTML = `
+        const template = html`
         <style>
         h1{
             background-color: red;
@@ -16,8 +19,18 @@ class OnlineSession extends HTMLElement {
         </style>
           <h1>jug.ch rocks!</h1>
             ${this.message}
-            <button>click me</button>
+            <input type="text" @change="${e => this.messageChanged(e)}"/>
+            <button @click="${e => this.saveClicked()}">click me</button>
         `;
+        render(template, this.root);
+    }
+
+    messageChanged(event) { 
+        console.log(event);
+    }
+
+    saveClicked() { 
+        console.log('button was clicked' + new Date());
     }
 
 }
