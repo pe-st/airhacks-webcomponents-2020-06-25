@@ -16,6 +16,7 @@ class OnlineSession extends HTMLElement {
         </style>
           <h1>jug.ch rocks!</h1>
             ${this.message}
+            <button>click me</button>
         `;
     }
 
